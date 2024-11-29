@@ -1,0 +1,63 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Biblia y Himnos Pro</title>
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --color-primary: #6B9DFF;
+    --color-primary-dark: #4B7BE6;
+    --color-secondary: #FF9B9B;
+    --color-text: #2A2A2A;
+    --color-text-light: #666666;
+    --color-background: #FFFFFF;
+    --color-background-alt: #EDF2FF;
+    --color-accent-1: #92E6D0;
+    --color-accent-2: #FFD699;
+    --color-accent-3: #D199FF;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    background-color: var(--color-background);
+  }
+
+  body {
+    font-family: "Roboto", system-ui, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    min-height: 100vh;
+    padding-top: 60px;
+  }
+
+  p {
+    color: var(--color-text);
+    font-weight: 400;
+  }
+
+  a {
+    color: var(--color-primary-dark);
+    font-weight: 500;
+  }
+</style>

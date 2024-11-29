@@ -1,0 +1,145 @@
+---
+
+---
+
+<header>
+  <nav>
+    <div class="logo">
+      <img src="/images/icon.png" alt="Logo Biblia y Himnos Pro" />
+      <h1>Biblia y Himnos Pro</h1>
+    </div>
+    <div class="nav-links">
+      <a href="#caracteristicas">Características</a>
+      <a href="#screenshots">Capturas</a>
+      <a href="https://play.google.com/store/apps/details?id=com.flowers.bibliaaudio">Descargar</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  :root {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+  }
+
+  header {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 0.75rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(148, 185, 255, 0.2);
+  }
+
+  nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(
+      135deg,
+      var(--color-accent-1) 0%,
+      var(--color-background-alt) 100%
+    );
+    padding: 0.75rem 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(148, 185, 255, 0.25);
+    border: 2px solid var(--color-primary);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .logo:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(148, 185, 255, 0.3);
+  }
+
+  .logo img {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    letter-spacing: -0.5px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-accent-2);
+  }
+
+  .nav-links a {
+    color: var(--color-text);
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    position: relative;
+    background: transparent;
+  }
+
+  .nav-links a:hover {
+    color: var(--color-primary-dark);
+    background: linear-gradient(
+      135deg,
+      var(--color-accent-1) 0%,
+      white 100%
+    );
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(148, 185, 255, 0.2);
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: linear-gradient(
+      to right,
+      var(--color-primary) 0%,
+      var(--color-accent-3) 100%
+    );
+    transition: width 0.3s ease;
+    border-radius: 4px;
+  }
+
+  .nav-links a:hover::after {
+    width: 80%;
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      padding: 0.5rem 1rem;
+    }
+
+    .nav-links {
+      display: none;
+    }
+  }
+</style>

@@ -1,0 +1,259 @@
+---
+// Importa las imágenes de las capturas de pantalla
+const screenshots = [
+    "/images/capturas/screenshot1.png",
+    "/images/capturas/screenshot2.png",
+    "/images/capturas/screenshot3.png",
+    "/images/capturas/screenshot4.png",
+    "/images/capturas/screenshot5.png",
+    "/images/capturas/screenshot6.png",
+    "/images/capturas/screenshot7.png",
+];
+---
+
+<section id="screenshots" class="screenshots-section">
+    <h2>Capturas de Pantalla</h2>
+    <div class="carousel-container">
+        <button class="nav-button prev" aria-label="Anterior">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <path d="M15 18l-6-6 6-6"></path>
+            </svg>
+        </button>
+
+        <div class="screenshots-grid">
+            <div class="carousel-track">
+                {
+                    screenshots.map((screenshot, index) => (
+                        <div class="screenshot-card">
+                            <img
+                                src={screenshot}
+                                alt={`Captura de pantalla ${index + 1} de Biblia y Himnos Pro`}
+                                loading="lazy"
+                            />
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+
+        <button class="nav-button next" aria-label="Siguiente">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <path d="M9 18l6-6-6-6"></path>
+            </svg>
+        </button>
+    </div>
+</section>
+
+<style>
+    .screenshots-section {
+        padding: 4rem 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: var(--color-primary-dark);
+    }
+
+    .carousel-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .screenshots-grid {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .carousel-track {
+        display: flex;
+        gap: 1.5rem;
+        transition: transform 0.5s ease;
+        width: fit-content;
+        transform-style: preserve-3d;
+    }
+
+    .screenshot-card {
+        flex: 0 0 calc(33.333% - 1rem);
+        min-width: calc(33.333% - 1rem);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(148, 185, 255, 0.2);
+        background: white;
+        padding: 0.5rem;
+        transition: all 0.5s ease;
+        transform: scale(0.8);
+    }
+
+    .screenshot-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+    }
+
+    .screenshot-card.active {
+        transform: scale(1);
+        z-index: 2;
+    }
+
+    .nav-button {
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--color-primary);
+        border: 2px solid var(--color-primary);
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(4px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-button:hover {
+        background: var(--color-primary);
+        color: white;
+        transform: scale(1.05);
+    }
+
+    .nav-button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background: rgba(255, 255, 255, 0.5);
+    }
+
+    .nav-button svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    @media (max-width: 768px) {
+        .screenshot-card {
+            flex: 0 0 calc(100% - 1rem);
+            min-width: calc(100% - 1rem);
+        }
+        .screenshots-grid {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .screenshots-section {
+            padding: 3rem 1rem;
+        }
+        .nav-button {
+            width: 40px;
+            height: 40px;
+        }
+
+        .nav-button svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const track = document.querySelector(".carousel-track") as HTMLElement;
+        const cards = document.querySelectorAll(".screenshot-card");
+        const prevButton = document.querySelector(".prev") as HTMLButtonElement;
+        const nextButton = document.querySelector(".next") as HTMLButtonElement;
+
+        if (!track || !prevButton || !nextButton || !cards.length) return;
+
+        let currentIndex = 0;
+        const totalCards = cards.length;
+
+        function setupInfiniteCarousel() {
+            const firstClone = track.firstElementChild?.cloneNode(true);
+            const lastClone = track.lastElementChild?.cloneNode(true);
+            if (firstClone) track.appendChild(firstClone);
+            if (lastClone)
+                track.insertBefore(lastClone, track.firstElementChild);
+        }
+
+        function updateCarousel() {
+            const cardWidth = (cards[0] as HTMLElement).offsetWidth;
+            const gap = 24;
+
+            let offset = (cardWidth + gap) * (currentIndex + 1);
+            track.style.transform = `translateX(-${offset}px)`;
+
+            cards.forEach((card, index) => {
+                card.classList.remove("active");
+                if (index === currentIndex + 1) {
+                    card.classList.add("active");
+                }
+            });
+
+            if (currentIndex === totalCards) {
+                setTimeout(() => {
+                    track.style.transition = "none";
+                    currentIndex = 0;
+                    offset = cardWidth + gap;
+                    track.style.transform = `translateX(-${offset}px)`;
+                    setTimeout(() => {
+                        track.style.transition = "transform 0.5s ease";
+                    }, 10);
+                }, 500);
+            } else if (currentIndex === -1) {
+                setTimeout(() => {
+                    track.style.transition = "none";
+                    currentIndex = totalCards - 1;
+                    offset = (cardWidth + gap) * totalCards;
+                    track.style.transform = `translateX(-${offset}px)`;
+                    setTimeout(() => {
+                        track.style.transition = "transform 0.5s ease";
+                    }, 10);
+                }, 500);
+            }
+        }
+
+        prevButton.addEventListener("click", () => {
+            currentIndex--;
+            updateCarousel();
+        });
+
+        nextButton.addEventListener("click", () => {
+            currentIndex++;
+            updateCarousel();
+        });
+
+        setupInfiniteCarousel();
+        updateCarousel();
+
+        window.addEventListener("resize", () => {
+            currentIndex = 0;
+            updateCarousel();
+        });
+    });
+</script>

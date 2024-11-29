@@ -1,0 +1,310 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Screenshots from '../components/Screenshots.astro';
+---
+
+<Layout>
+  <Header />
+  <main>
+    <section class="hero">
+      <h1>Biblia y Himnos Pro</h1>
+      <p>
+        Tu compañero espiritual perfecto para cada día. Explora la Biblia, canta
+        himnos y crece en tu fe.
+      </p>
+      <div class="cta-buttons">
+        <a
+          href="https://play.google.com/store/apps/details?id=com.flowers.bibliaaudio"
+          class="google-play-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="/images/google-play.png"
+            alt="Disponible en Google Play"
+            class="google-play-badge"
+          />
+          <p class="download-text">¡Descarga Gratis!</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="features" id="caracteristicas">
+      <h2>Características Principales</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Biblia Completa</h3>
+          <p>Múltiples versiones, búsqueda avanzada por voz y texto con comparación de versículos</p>
+        </div>
+        <div class="feature-card">
+          <h3>Himnario Digital</h3>
+          <p>Colección completa de himnos y coros con letra y audio</p>
+        </div>
+        <div class="feature-card">
+          <h3>Radio Cristiana</h3>
+          <p>Estaciones de radio cristiana en vivo</p>
+        </div>
+        <div class="feature-card">
+          <h3>Diccionario Bíblico</h3>
+          <p>Definiciones detalladas con referencias cruzadas y diccionario Strong incluido</p>
+        </div>
+        <div class="feature-card">
+          <h3>Juegos Bíblicos</h3>
+          <p>Trivia y actividades para aprender mientras te diviertes</p>
+        </div>
+        <div class="feature-card">
+          <h3>Modo Offline</h3>
+          <p>Accede al contenido sin necesidad de internet</p>
+        </div>
+      </div>
+    </section>
+
+    <Screenshots />
+
+    <section class="faq" id="preguntas-frecuentes">
+      <h2>Preguntas Frecuentes</h2>
+      <div class="faq-grid">
+        <details class="faq-item">
+          <summary>¿Puedo usar la app sin internet?</summary>
+          <p>
+            Sí, la mayoría de las funciones están disponibles offline. Solo
+            necesitas conexión para la radio y actualizaciones.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Qué versiones de la Biblia incluye?</summary>
+          <p>
+            Incluye las traducciones más populares en español y la capacidad de
+            comparar versiones lado a lado.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Los himnos tienen audio?</summary>
+          <p>
+            Sí, la mayoría de los himnos incluyen audio que puedes descargar
+            para uso offline.
+          </p>
+        </details>
+      </div>
+      
+      <div class="faq-download">
+        <p>¿Listo para comenzar tu viaje espiritual?</p>
+        <a
+          href="https://play.google.com/store/apps/details?id=com.flowers.bibliaaudio"
+          class="google-play-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="/images/google-play.png"
+            alt="Disponible en Google Play"
+            class="google-play-badge"
+          />
+          <p class="download-text">¡Descarga Ahora!</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <h2>Contacto y Soporte</h2>
+      <p>¿Necesitas ayuda o tienes sugerencias? Contáctanos:</p>
+      <div class="contact-info">
+        <a href="mailto:bibliayhimnospro@gmail.com"
+          >bibliayhimnospro@gmail.com</a
+        >
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 8rem 2rem 6rem;
+    background: linear-gradient(
+      135deg,
+      var(--color-background-alt) 0%,
+      rgba(181, 230, 216, 0.4) 50%,
+      rgba(255, 226, 181, 0.3) 100%
+    );
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary-dark);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-dark) 0%,
+      var(--color-accent-3) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+  }
+
+  .hero p {
+    font-size: 1.5rem;
+    color: var(--color-text);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  .feature-card h3 {
+    font-size: 1.5rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .feature-card p {
+    color: var(--color-text);
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .feature-card {
+    background: white;
+    border: 2px solid var(--color-accent-1);
+    box-shadow: 0 4px 15px rgba(148, 185, 255, 0.1);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .feature-card:hover {
+    border-color: var(--color-primary);
+    background: var(--color-background-alt);
+    transform: translateY(-5px);
+  }
+
+  .faq-grid {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .faq-item {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background: var(--color-background-alt);
+  }
+
+  .contact {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--color-background-alt);
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    animation: bounce 2s infinite;
+  }
+
+  .google-play-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 0.8rem 2rem;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+    border: 3px solid #4285f4;
+    width: fit-content;
+    box-shadow: 0 4px 15px rgba(66, 133, 244, 0.2);
+  }
+
+  .google-play-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(66, 133, 244, 0.3);
+    border-color: #2b76f3;
+    background: linear-gradient(135deg, #ffffff 0%, #e8f3ff 100%);
+  }
+
+  .google-play-badge {
+    height: 100px;
+    width: auto;
+  }
+
+  .download-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4285f4;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .privacy-note {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+  }
+
+  .privacy-note a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .privacy-note a:hover {
+    text-decoration: underline;
+  }
+
+  .faq-download {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%);
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(66, 133, 244, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .faq-download p {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: #4285f4;
+    font-weight: bold;
+  }
+</style>
