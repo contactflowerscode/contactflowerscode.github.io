@@ -6,33 +6,99 @@ import Footer from "../components/Footer.astro";
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Biblia y Himnos Pro</title>
+    <meta
+      name="description"
+      content="Biblia y Himnos Pro - Tu compañero espiritual perfecto. Explora la Biblia, canta himnos y crece en tu fe con nuestra app gratuita."
+    />
+    <meta
+      name="keywords"
+      content="biblia, himnos, cristiano, religioso, app, gratis, offline"
+    />
+    <title>Biblia y Himnos Pro - Tu Compañero Espiritual</title>
+
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <Header />
-    <slot />
+    <main id="main-content">
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>
 
 <style is:global>
   :root {
-    --color-primary: #6B9DFF;
-    --color-primary-dark: #4B7BE6;
-    --color-secondary: #FF9B9B;
-    --color-text: #2A2A2A;
-    --color-text-light: #666666;
-    --color-background: #FFFFFF;
-    --color-background-alt: #EDF2FF;
-    --color-accent-1: #92E6D0;
-    --color-accent-2: #FFD699;
-    --color-accent-3: #D199FF;
+    /* Colores mejorados para mejor contraste */
+    --color-primary: #4a90e2;
+    --color-primary-dark: #2e5c8a;
+    --color-primary-light: #7bb3f0;
+    --color-secondary: #e74c3c;
+    --color-secondary-light: #f39c9c;
+    --color-text: #1a1a1a;
+    --color-text-light: #4a4a4a;
+    --color-text-muted: #6b6b6b;
+    --color-background: #ffffff;
+    --color-background-alt: #f8faff;
+    --color-background-card: #ffffff;
+    --color-accent-1: #00d4aa;
+    --color-accent-2: #ffb347;
+    --color-accent-3: #b347ff;
+    --color-border: #e1e8f0;
+    --color-border-light: #f0f4f8;
+
+    /* Sombras */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.15);
+
+    /* Transiciones */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* Espaciado */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+
+    /* Tipografía */
+    --font-family: "Inter", system-ui, -apple-system, sans-serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
+    --font-size-4xl: 2.5rem;
+
+    /* Border radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 24px;
   }
 
-  * {
+  /* Reset mejorado */
+  *,
+  *::before,
+  *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -40,24 +106,215 @@ import Footer from "../components/Footer.astro";
 
   html {
     background-color: var(--color-background);
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
   }
 
   body {
-    font-family: "Roboto", system-ui, sans-serif;
+    font-family: var(--font-family);
     line-height: 1.6;
     color: var(--color-text);
     background-color: var(--color-background);
     min-height: 100vh;
-    padding-top: 60px;
+    padding-top: 80px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Skip link para accesibilidad */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--color-primary-dark);
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    z-index: 9999;
+    transition: top var(--transition-fast);
+  }
+
+  .skip-link:focus {
+    top: 6px;
+  }
+
+  /* Tipografía mejorada */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text);
+    margin-bottom: var(--space-md);
+  }
+
+  h1 {
+    font-size: var(--font-size-4xl);
+  }
+  h2 {
+    font-size: var(--font-size-3xl);
+  }
+  h3 {
+    font-size: var(--font-size-2xl);
+  }
+  h4 {
+    font-size: var(--font-size-xl);
+  }
+  h5 {
+    font-size: var(--font-size-lg);
+  }
+  h6 {
+    font-size: var(--font-size-base);
   }
 
   p {
     color: var(--color-text);
     font-weight: 400;
+    margin-bottom: var(--space-md);
+    line-height: 1.7;
   }
 
   a {
-    color: var(--color-primary-dark);
+    color: var(--color-primary);
     font-weight: 500;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  a:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+
+  a:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Botones accesibles */
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+  }
+
+  button:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  /* Imágenes responsivas */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Mejoras para lectores de pantalla */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Estados de focus mejorados */
+  *:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  /* Animaciones respetan preferencias de usuario */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Mejoras para modo alto contraste */
+  @media (prefers-contrast: high) {
+    :root {
+      --color-text: #000000;
+      --color-background: #ffffff;
+      --color-primary: #0000ff;
+      --color-border: #000000;
+    }
+  }
+
+  /* Soporte para tema oscuro del sistema */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text: #e5e5e5;
+      --color-text-light: #b0b0b0;
+      --color-text-muted: #888888;
+      --color-background: #0f0f0f;
+      --color-background-alt: #1a1a1a;
+      --color-background-card: #1f1f1f;
+      --color-border: #333333;
+      --color-border-light: #2a2a2a;
+    }
+  }
+
+  /* Utilidades de espaciado */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+
+  .text-center {
+    text-align: center;
+  }
+  .text-left {
+    text-align: left;
+  }
+  .text-right {
+    text-align: right;
+  }
+
+  .font-bold {
+    font-weight: 700;
+  }
+  .font-semibold {
+    font-weight: 600;
+  }
+  .font-medium {
+    font-weight: 500;
+  }
+
+  /* Responsive typography */
+  @media (max-width: 768px) {
+    :root {
+      --font-size-4xl: 2rem;
+      --font-size-3xl: 1.75rem;
+      --font-size-2xl: 1.375rem;
+    }
+
+    body {
+      padding-top: 70px;
+    }
   }
 </style>

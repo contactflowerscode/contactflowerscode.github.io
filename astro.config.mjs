@@ -9,5 +9,8 @@ export default defineConfig({
       theme: 'github-dark',
       wrap: true
     }
-  }
+  },
+  site: 'https://contactflowerscode.github.io',
+  base: '/',
+  output: 'static'
 });
