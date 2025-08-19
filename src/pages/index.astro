@@ -5,7 +5,6 @@ import Screenshots from '../components/Screenshots.astro';
 ---
 
 <Layout>
-  <Header />
   <main>
     <section class="hero">
       <h1>Biblia y Himnos Pro</h1>
@@ -237,15 +236,15 @@ import Screenshots from '../components/Screenshots.astro';
     padding: 0.8rem 2rem;
     border-radius: 20px;
     background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
-    border: 3px solid #4285f4;
+    border: 3px solid var(--color-primary);
     width: fit-content;
-    box-shadow: 0 4px 15px rgba(66, 133, 244, 0.2);
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.2);
   }
 
   .google-play-button:hover {
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(66, 133, 244, 0.3);
-    border-color: #2b76f3;
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+    border-color: var(--color-primary-dark);
     background: linear-gradient(135deg, #ffffff 0%, #e8f3ff 100%);
   }
 
@@ -257,7 +256,7 @@ import Screenshots from '../components/Screenshots.astro';
   .download-text {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #4285f4;
+    color: var(--color-primary);
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
     margin: 0;
     display: flex;
@@ -304,7 +303,23 @@ import Screenshots from '../components/Screenshots.astro';
   .faq-download p {
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
-    color: #4285f4;
+    color: var(--color-primary);
     font-weight: bold;
+  }
+
+  /* Ajustes responsive para mejorar UX en móvil */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 6rem 1rem 4rem;
+    }
+    .hero h1 {
+      font-size: 2.25rem;
+    }
+    .hero p {
+      font-size: 1.125rem;
+    }
+    .google-play-badge {
+      height: 80px;
+    }
   }
 </style>

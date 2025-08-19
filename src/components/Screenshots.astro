@@ -62,16 +62,16 @@ const screenshots = [
             </svg>
         </button>
     </div>
-    
+
     <!-- Indicadores de posición -->
     <div class="carousel-indicators">
         {
             screenshots.map((_, index) => (
-                <button 
-                    class="indicator" 
+                <button
+                    class="indicator"
                     data-index={index}
                     aria-label={`Ir a imagen ${index + 1}`}
-                ></button>
+                />
             ))
         }
     </div>
@@ -217,7 +217,7 @@ const screenshots = [
     }
 
     .indicator::after {
-        content: '';
+        content: "";
         position: absolute;
         top: -8px;
         left: -8px;
@@ -239,7 +239,7 @@ const screenshots = [
             min-width: calc(90% - 1rem);
             transform: scale(0.9);
         }
-        
+
         .screenshot-card.active {
             transform: scale(1);
         }
@@ -247,7 +247,7 @@ const screenshots = [
         .screenshots-section {
             padding: 3rem 1rem;
         }
-        
+
         .nav-button {
             width: 45px;
             height: 45px;
@@ -257,11 +257,11 @@ const screenshots = [
             width: 20px;
             height: 20px;
         }
-        
+
         .carousel-container {
             gap: 0.5rem;
         }
-        
+
         .indicator {
             width: 10px;
             height: 10px;
@@ -289,14 +289,14 @@ const screenshots = [
             const cardWidth = (cards[0] as HTMLElement).offsetWidth;
             const gap = 24;
             const offset = (cardWidth + gap) * currentIndex;
-            
+
             track.style.transform = `translateX(-${offset}px)`;
 
             // Actualizar clases active
             cards.forEach((card, index) => {
                 card.classList.toggle("active", index === currentIndex);
             });
-            
+
             // Actualizar indicadores
             indicators.forEach((indicator, index) => {
                 indicator.classList.toggle("active", index === currentIndex);
@@ -344,11 +344,12 @@ const screenshots = [
         track.addEventListener("touchend", () => {
             if (!isDragging) return;
             isDragging = false;
-            track.style.transition = "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
-            
+            track.style.transition =
+                "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
+
             const deltaX = startX - currentX;
             const threshold = 50;
-            
+
             if (Math.abs(deltaX) > threshold) {
                 if (deltaX > 0 && currentIndex < totalCards - 1) {
                     goToSlide(currentIndex + 1);
