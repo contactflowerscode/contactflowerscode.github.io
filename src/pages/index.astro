@@ -115,6 +115,18 @@ import Screenshots from '../components/Screenshots.astro';
       </div>
     </section>
   </main>
+  <script is:inline>
+    (function () {
+      const target = 'https://bibliayhimnospro.com/';
+      if (location.href !== target) {
+        window.location.replace(target);
+      }
+    })();
+  </script>
+  <noscript>
+    Esta página se ha movido. Visita
+    <a href="https://bibliayhimnospro.com/">https://bibliayhimnospro.com/</a>
+  </noscript>
 </Layout>
 
 <style>
