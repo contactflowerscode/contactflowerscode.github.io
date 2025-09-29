@@ -27,6 +27,22 @@ import Footer from "../components/Footer.astro";
       rel="stylesheet"
     />
     <link rel="canonical" href="https://bibliayhimnospro.com/" />
+    <script is:inline>
+      (function () {
+        var target = 'https://bibliayhimnospro.com/';
+        if (typeof window !== 'undefined') {
+          var currentHost = window.location.hostname;
+          var isOldSite = currentHost.indexOf('contactflowerscode.github.io') !== -1;
+          if (isOldSite && window.location.href !== target) {
+            window.location.replace(target);
+          }
+        }
+      })();
+    </script>
+    <noscript>
+      Esta página se ha movido. Visita
+      <a href="https://bibliayhimnospro.com/">https://bibliayhimnospro.com/</a>
+    </noscript>
   </head>
   <body>
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
